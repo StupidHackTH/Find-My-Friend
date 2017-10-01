@@ -1,0 +1,36 @@
+[debug] [2017-10-01T02:22:14.579Z] ----------------------------------------------------------------------
+[debug] [2017-10-01T02:22:14.579Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\first\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-10-01T02:22:14.579Z] CLI Version:   3.12.0
+[debug] [2017-10-01T02:22:14.579Z] Platform:      win32
+[debug] [2017-10-01T02:22:14.579Z] Node Version:  v8.6.0
+[debug] [2017-10-01T02:22:14.579Z] Time:          Sun Oct 01 2017 09:22:14 GMT+0700 (SE Asia Standard Time)
+[debug] [2017-10-01T02:22:14.579Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-01T02:22:14.601Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-01T02:22:14.601Z] > authorizing via signed-in user
+[debug] [2017-10-01T02:22:14.601Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-10-01T02:22:14.601Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/nGx2WaivEgT3uJTfCgFVin2YaZuSCozxg0ZnYoWO0f0',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Oct 01 2017 09:22:14 GMT+0700 (SE Asia Standard Time)
+[debug] [2017-10-01T02:22:15.101Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-01T02:22:15.102Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/thestupidhackth  
+ Sun Oct 01 2017 09:22:15 GMT+0700 (SE Asia Standard Time)
+[debug] [2017-10-01T02:22:16.482Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-01T02:22:16.482Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/thestupidhackth/tokens  
+ Sun Oct 01 2017 09:22:16 GMT+0700 (SE Asia Standard Time)
+[debug] [2017-10-01T02:22:18.135Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'G:\ProGraming\VS Coding'...
+[info] 
+[debug] [2017-10-01T02:22:18.135Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/thestupidhackth  
+ Sun Oct 01 2017 09:22:18 GMT+0700 (SE Asia Standard Time)
+[debug] [2017-10-01T02:22:19.844Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-01T02:22:19.845Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/259143233665/clients/_:getWebAppConfig  
+ Sun Oct 01 2017 09:22:19 GMT+0700 (SE Asia Standard Time)
+[debug] [2017-10-01T02:22:20.652Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+

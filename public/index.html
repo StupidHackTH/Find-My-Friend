@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/4.4.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/4.4.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/4.4.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/4.4.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/4.4.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+      .bthd{
+        display: none;
+        /* visibility: hidden; */
+      }
+    </style>
+
+<style>
+  body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+
+      min-height: 100vh;
+      width: 100%;
+  }
+
+  #content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: linear-gradient(to bottom right, #B066FE, #63E2FF);
+      border-radius: 10px;
+
+      width: 20em;
+      height: 20em;
+  }
+
+  #map {
+      width: 18.5em;
+      height: 18.5em;
+  }
+</style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>FIND MY FRIEND</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <div>
+        <p id="gg1"><a href="javascript:void(0);" onclick="signinWithGoogle()">Sign in with google</a></p>
+      </div>
+      <div>
+        <p id="user_name"></p>
+      </div>
+        
+      <div id = "content">
+        
+        <div id = "map"></div>
+         <script>
+            var map, infoWindow;
+                function initMap() {
+                  window.map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: -34.397, lng: 150.644},
+                    zoom: 6
+                  });
+                  infoWindow = new google.maps.InfoWindow;
+                  if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                      var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude};
+          
+                      infoWindow.setPosition(pos);
+                      infoWindow.setContent("You're here");
+                      infoWindow.open(map);
+                      map.setCenter(pos);
+                    }, function() {
+                      handleLocationError(true, infoWindow, map.getCenter());
+                    });
+                  
+                  } 
+                  else {
+                    handleLocationError(false, infoWindow, map.getCenter());
+                  }
+                }
+                function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                  infoWindow.setPosition(pos);
+                  infoWindow.setContent(browserHasGeolocation ?
+                                        'Error: The Geolocation service failed.' :
+                                        'Error: Your browser doesn\'t support geolocation.');
+                  infoWindow.open(map);
+                }
+
+                window.sendMessage = function() {
+                  firebase
+                  .database()
+                  .ref('position')
+                  .push({
+                    text: document.getElementById('pos').value
+                  })
+
+                  ref.on("child_added", (snapshot, prevChildkey) => {
+                    var newPost = snapshot.val();
+                    console.log("Author: " + newPost.author);
+                    console.log("Title: " + newPost.title);
+                    console.log("Previous Post ID: " + prevChildkey);
+                  });              
+                }
+          </script>
+          <script
+         async defer
+        src ="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfxB7Wl1rwhMcedytEQK5BOTBfeL_6q0&callback=initMap">
+        </script>
+      
+
+
+                    
+    
+                
+
+                </script>
+                
+        </div>
+    
+        
+    </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        const db = firebase.database()
+        let store = []
+
+        db.ref('/position').on('value', snap => {
+          const value = snap.val()
+          console.info(value)
+
+          store.forEach (x => x.setMap(null))
+          store = []
+
+          Object.values(value).forEach((position, index) => {
+            store[index] = new google.maps.Marker({
+              position,
+              map,
+              title: 'Hello World!'
+            })
+          })
+        })
+
+        window.signinWithGoogle = function() {
+            console.log('Click')
+            var provider  = new firebase.auth.GoogleAuthProvider();
+            // provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+            console.log(firebase);
+            firebase.auth().signInWithPopup(provider).then(function(result){
+              var token = result.credential.accessToken;
+              var user = result.user;
+              document.getElementById('gg1').className='bthd'
+              document.getElementById('user_name').innerText=user.displayName
+
+              firebase
+              .database()
+              .ref('/messages')
+              .on('child_added',function(snapshot){
+                var p = document.createElement('gg2')
+                p.innerText= snapshot.val().text 
+                document.getElementById('messages').appendChild(gg2)
+              })
+            }).catch(function(error){
+              var errorCode = error.code;
+              var errorMessage = error.Message;
+              console.log(error)
+              var email = error.email;
+              var credential = error.credential;
+            });
+          }
+          window.sendMessage = function(){
+            firebase
+            .database()
+            .ref('/message')
+            .push({
+              text : document.getElementById('text_msg').value
+            })
+          }
+        
+          //end1
+        function showPosition(position) {
+          x.innerHTML = "Username " + user.displayName;
+        }
+          
+     //end2
+        /*try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';x
+
+        }*/
+      });
+    </script>
+    
+
+
+  </body>
+</html>
